@@ -1,0 +1,52 @@
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.tagline {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.socialIcons {
+  margin: 15px 0;
+}
+
+.icon {
+  color: white;
+  font-size: 24px;
+  margin: 0 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.icon:hover {
+  color: rgb(255, 117, 4);
+}
+
+.footerLinks {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.footerLinks a {
+  color: white;
+  text-decoration: underline;
+  margin: 0 5px;
+}
+
+.footerLinks a:hover {
+  color: rgb(255, 117, 4);
+}

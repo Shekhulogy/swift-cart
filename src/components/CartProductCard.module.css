@@ -1,0 +1,52 @@
+.productDescription {
+  width: 100%;
+  height: 35%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.productDescription img {
+  width: 100px;
+  height: 100px;
+}
+
+.productDescription div {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.productDescription .title {
+  width: 100%;
+  height: 40px;
+  font-size: 13px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.productDescription .price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.price .amount {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.productDescription .deleteButton {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: rgb(255, 117, 4);
+}

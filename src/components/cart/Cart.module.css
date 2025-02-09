@@ -1,0 +1,75 @@
+.cart {
+  width: 400px;
+  max-width: 400px;
+  height: 100%;
+  position: fixed;
+  background-color: rgb(235, 235, 235);
+  right: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 999;
+}
+
+.subTotal {
+  width: 100%;
+  padding: 10px;
+  padding-left: 25px;
+  margin-top: 40px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.subTotal p {
+  font-weight: 600;
+}
+
+.subTotal h3 {
+  font-size: 25px;
+  font-weight: 500;
+  color: rgb(255, 117, 4);
+}
+
+.subTotal span {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.orderItems {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: scroll;
+}
+
+.orderItems::-webkit-scrollbar {
+  width: 5px;
+  height: 100%;
+  transition: 0.5s ease-in;
+}
+
+.orderItems::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 99px;
+}
+
+.orderItems::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 99px;
+  cursor: pointer;
+}
+
+.cancelButton {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
