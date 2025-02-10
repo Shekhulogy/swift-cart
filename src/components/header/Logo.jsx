@@ -1,4 +1,4 @@
-import Style from "./logo.module.css";
+import Style from "./Logo.module.css";
 export const Logo = () => {
   return (
     <div className={Style.logo}>
