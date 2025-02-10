@@ -5,25 +5,18 @@ import { CartContext } from "../context/CartContext";
 const ProductCard = ({ product }) => {
   const { cartItems, dispatch } = useContext(CartContext);
   const [added, setAdded] = useState(false);
-  const [addedProducts, setAddedProducts] = useState([]);
 
   useEffect(() => {
     const cartItemsSet = new Set(cartItems.map((item) => item.id));
-    const missingItems = addedProducts.filter(
-      (curProduct) => !cartItemsSet.has(curProduct.id)
-    );
-
-    missingItems.map((item) => {
-      if (item.id === product.id) {
-        setAdded(false);
-      }
-    });
+    const missingItem = !cartItemsSet.has(product.id);
+    if (missingItem) {
+      setAdded(false);
+    }
   }, [cartItems]);
 
   const clickHandler = () => {
     if (!added) {
       setAdded(true);
-      setAddedProducts([...addedProducts, product]);
       dispatch({
         type: "SUBMIT",
         payload: {
@@ -38,7 +31,6 @@ const ProductCard = ({ product }) => {
       const updatedCartItems = cartItems.filter(
         (curItem) => curItem.id != product.id
       );
-      setAddedProducts(updatedCartItems);
       dispatch({ type: "UPDATE", payload: updatedCartItems });
     }
   };
