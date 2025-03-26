@@ -41,6 +41,10 @@
   border-radius: 5px;
 }
 
+.authContainer input:focus-visible {
+  outline: none;
+}
+
 .authContainer button {
   padding: 10px;
   background-color: #ff6600;
@@ -58,6 +62,16 @@
 
 .authContainer p {
   margin-top: 10px;
+}
+
+.authContainer .error {
+  border-radius: 3px;
+  font-size: 12px;
+  padding: 4px;
+  padding-left: 10px;
+  background: rgba(230, 120, 31, 0.5);
+  text-align: left;
+  color: red;
 }
 
 .authContainer a {

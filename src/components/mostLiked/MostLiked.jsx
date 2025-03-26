@@ -18,7 +18,7 @@ export const MostLiked = () => {
               ))
             : Array(8)
                 .fill(0)
-                .map((_, i) => <ImageSkeleton />)}
+                .map((_, i) => <ImageSkeleton key={i} />)}
         </div>
       </Marquee>
       <Marquee direction={"right"} speed={30}>
@@ -29,7 +29,7 @@ export const MostLiked = () => {
               ))
             : Array(8)
                 .fill(0)
-                .map((_, i) => <ImageSkeleton />)}
+                .map((_, i) => <ImageSkeleton key={i} />)}
         </div>
       </Marquee>
     </div>

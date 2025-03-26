@@ -7,7 +7,7 @@ export const Hero = () => {
       <div className={Style.heroTitle}>
         <h1>Your One-Stop</h1>
         <h3>Shop for Everything You Love</h3>
-        <p> – Fast, Easy, Reliable!</p>
+        <span> – Fast, Easy, Reliable!</span>
       </div>
       <img src={girlImage} alt="" />
     </div>

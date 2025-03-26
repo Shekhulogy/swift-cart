@@ -41,8 +41,8 @@
   font-weight: 400;
 }
 
-.heroTitle p {
-  width: 30rem;
+.heroTitle span {
+  max-width: 30rem;
   font-size: 40px;
   font-weight: 500;
   padding: 20px;

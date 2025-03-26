@@ -15,7 +15,6 @@ const cartReducer = (state, action) => {
           price: action.payload.price,
         },
       ];
-      break;
     case "UPDATE":
       return action.payload;
 

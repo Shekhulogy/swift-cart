@@ -1,25 +1,48 @@
-import React, { useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Style from "./LoginSignup.module.css";
+import { Link, useNavigate } from "react-router-dom";
+import { LoginSignupContext } from "../../context/LoginSignupContext";
 
 export const Login = ({ setStatus }) => {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  const [loginForm, setLoginForm] = useState({
+  const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
 
+  const { auth, dispatch } = useContext(LoginSignupContext);
+  const emailInputRef = useRef();
+  const passInputRef = useRef();
+  const [authState, setAuthState] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login with:", { ...loginForm });
-    setLoginForm({
-      email: "",
-      password: "",
-    });
+    const users = JSON.parse(localStorage.getItem("users"));
+
+    const matchedUser = users.find(
+      (user) =>
+        user.email === loginData.email && user.password === loginData.password
+    );
+
+    if (matchedUser) {
+      dispatch({ type: "login", payload: matchedUser });
+      setLoginData({
+        email: "",
+        password: "",
+      });
+      setStatus({ logIn: false, loginContainer: false });
+    }
+
+    if (auth) {
+      setAuthState(false);
+    } else {
+      setAuthState(true);
+      emailInputRef.current.style.border = "1px solid red";
+      passInputRef.current.style.border = "1px solid red";
+    }
   };
 
   const handleChange = (e) => {
-    setLoginForm((preValue) => ({
+    setLoginData((preValue) => ({
       ...preValue,
       [e.target.name]: e.target.value,
     }));
@@ -39,30 +62,35 @@ export const Login = ({ setStatus }) => {
           type="email"
           name="email"
           placeholder="Email"
-          value={loginForm.email}
+          value={loginData.email}
           onChange={handleChange}
+          ref={emailInputRef}
           required
         />
         <input
           type="password"
           name="password"
           placeholder="Password"
-          value={loginForm.password}
+          value={loginData.password}
           onChange={handleChange}
+          ref={passInputRef}
           required
         />
+        {authState && (
+          <div className={Style.error}>error: invalid email or password</div>
+        )}
         <button type="submit">Login</button>
       </form>
       <p>
         Don't have an account?{" "}
-        <a
+        <Link
           href="#"
           onClick={() =>
             setStatus({ loginContainer: true, logIn: false, signUp: true })
           }
         >
           Sign Up
-        </a>
+        </Link>
       </p>
     </div>
   );

@@ -7,6 +7,8 @@ import { Footer } from "./footer/Footer";
 import { Login } from "./logIn-signUp/Login";
 import { SignUp } from "./logIn-signUp/SignUp";
 import Style from "./RootLayout.module.css";
+import { LoginSignupContextProvider } from "../context/LoginSignupContextProvider";
+import { LogOut } from "./header/LogOut";
 
 const RootLayout = () => {
   const [showCart, setShowCart] = useState(false);
@@ -15,17 +17,25 @@ const RootLayout = () => {
     logIn: false,
     signUp: false,
   });
+  const [showLogout, setShowLogout] = useState(false);
 
   return (
     <CartContextProvider>
-      {status.loginContainer && (
-        <div className={Style.loginSignUpContainer}>
-          {status.logIn && <Login setStatus={setStatus} />}
-          {status.signUp && <SignUp setStatus={setStatus} />}
-        </div>
-      )}
-      {showCart && <Cart setShowCart={setShowCart} />}
-      <Header setShowCart={setShowCart} setStatus={setStatus} />
+      <LoginSignupContextProvider>
+        {status.loginContainer && (
+          <div className={Style.loginSignUpContainer}>
+            {status.logIn && <Login setStatus={setStatus} />}
+            {status.signUp && <SignUp setStatus={setStatus} />}
+          </div>
+        )}
+        {showCart && <Cart setShowCart={setShowCart} />}
+        <Header
+          setShowCart={setShowCart}
+          setStatus={setStatus}
+          setShowLogout={setShowLogout}
+        />
+        {showLogout && <LogOut setShowLogout={setShowLogout} />}
+      </LoginSignupContextProvider>
       <Outlet />
       <Footer />
     </CartContextProvider>

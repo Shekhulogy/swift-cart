@@ -6,12 +6,25 @@
   justify-content: space-around;
   background-color: rgb(255, 117, 4);
   color: white;
+  position: relative;
 }
 
 .buttons {
   display: flex;
   align-items: center;
   gap: 40px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.userAccount {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .loginButton {
