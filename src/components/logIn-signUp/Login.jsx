@@ -42,6 +42,10 @@ export const Login = ({ setStatus }) => {
   };
 
   const handleChange = (e) => {
+    setAuthState(false);
+    emailInputRef.current.style.border = "1px solid #ccc";
+    passInputRef.current.style.border = "1px solid #ccc";
+
     setLoginData((preValue) => ({
       ...preValue,
       [e.target.name]: e.target.value,
